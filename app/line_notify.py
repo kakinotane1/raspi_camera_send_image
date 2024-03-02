@@ -34,7 +34,7 @@ def send_photo_stream(
 
 
 def send_image(filepath: str, message="", notification_disabled=False):
-    headers = {"Authorization": "Bearer " + NOTIFY_TOKEN}
+    headers = {"Authorization": f"Bearer {NOTIFY_TOKEN}"}
     payload = {
         "message": message,
         "notificationDisabled": notification_disabled,
@@ -59,9 +59,23 @@ def main(args):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--num", "-n", type=int, default=1, help="How many times you want to take photos.")
-    parser.add_argument("--sleep", "-s", type=int, default=1, help="Sleep time between taking photos.")
-    parser.add_argument("--message", "-m", type=str, default="Send Image.", help="Message you want to send.")
+    parser.add_argument(
+        "--num",
+        "-n",
+        type=int,
+        default=1,
+        help="How many times you want to take photos.",
+    )
+    parser.add_argument(
+        "--sleep", "-s", type=int, default=1, help="Sleep time between taking photos."
+    )
+    parser.add_argument(
+        "--message",
+        "-m",
+        type=str,
+        default="Send Image.",
+        help="Message you want to send.",
+    )
     return parser.parse_args()
 
 
