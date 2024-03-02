@@ -59,9 +59,9 @@ def main(args):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--num", "-n", default=1, help="")
-    parser.add_argument("--sleep", "-s", default=1, help="")
-    parser.add_argument("--message", "-m", default="Send Image.", help="")
+    parser.add_argument("--num", "-n", type=int, default=1, help="How many times you want to take photos.")
+    parser.add_argument("--sleep", "-s", type=int, default=1, help="Sleep time between taking photos.")
+    parser.add_argument("--message", "-m", type=str, default="Send Image.", help="Message you want to send.")
     return parser.parse_args()
 
 
